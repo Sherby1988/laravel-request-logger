@@ -1,5 +1,5 @@
 {
-  "name": "prettus/laravel-request-logger",
+  "name": "iamjoey/laravel-request-logger",
   "description": "HTTP request logger middleware for Laravel",
   "keywords": ["laravel", "logger", "request", "response"],
   "license": "MIT",
