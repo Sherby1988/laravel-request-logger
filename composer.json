@@ -1,16 +1,29 @@
 {
   "name": "iamjoey/laravel-request-logger",
   "description": "HTTP request logger middleware for Laravel",
-  "keywords": ["laravel", "logger", "request", "response"],
+  "keywords": [
+    "laravel",
+    "logger",
+    "request",
+    "response"
+  ],
+  "homepage": "https://github.com/iamjoey/laravel-request-logger",
+  "support": {
+    "source": "https://github.com/iamjoey/laravel-request-logger"
+  },
   "license": "MIT",
   "authors": [
     {
       "name": "Anderson Andrade",
       "email": "contato@andersonandra.de"
+    },
+    {
+      "name": "Joey Hallie",
+      "email": "hi@joeyhallie.nl"
     }
   ],
   "require": {
-    "php": ">=5.4.0"
+    "php": ">=5.6.4"
   },
   "require-dev": {
     "illuminate/support": "5.0.*|~5.1",
