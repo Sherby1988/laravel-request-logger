@@ -84,6 +84,14 @@ class RequestInterpolation extends BaseInterpolation {
                 switch($matches[0]) {
                 case "date":
                     $matches[] = "clf";
+                    break;        
+                case "request-content":
+                    if($data = $this->request->all()) {
+                        $data['password'] = bcrypt($data['password']);
+                        return json_encode($data);
+                    } else {
+                        return "";
+                    }
                     break;
                 }
             }
