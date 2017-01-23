@@ -1,17 +1,17 @@
-<?php 
+<?php
 
 namespace Prettus\RequestLogger\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Prettus\RequestLogger\Helpers\Benchmarking;
+use Prettus\RequestLogger\Middlewares\ResponseLoggerMiddleware;
 
 /**
  * Class LoggerServiceProvider
  * @package Prettus\RequestLogger\Providers
  */
-class LoggerServiceProvider extends ServiceProvider 
+class LoggerServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap any application services.
      *
@@ -22,7 +22,6 @@ class LoggerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../../resources/config/request-logger.php' => config_path('request-logger.php')
         ]);
-
         $this->mergeConfigFrom(
             __DIR__ . '/../../../resources/config/request-logger.php', 'request-logger'
         );
@@ -34,17 +33,11 @@ class LoggerServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {        
-        app('router')->before(function(){
-            Benchmarking::start('application');
-        });
-
-        app('router')->after(function(){
-            Benchmarking::end('application');
-        });
+    {
+        Benchmarking::start('application');
 
         $kernel = $this->app->make('Illuminate\Contracts\Http\Kernel');
-        $kernel->prependMiddleware(\Prettus\RequestLogger\Middlewares\ResponseLoggerMiddleware::class);
+        $kernel->prependMiddleware(ResponseLoggerMiddleware::class);
+        Benchmarking::end('application');
     }
-
 }
