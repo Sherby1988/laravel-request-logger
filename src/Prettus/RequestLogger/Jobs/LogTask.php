@@ -4,7 +4,7 @@ namespace Prettus\RequestLogger\Jobs;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class implements ShouldQueue
+class LogTask implements ShouldQueue
 {
     /**
      * @var Request
