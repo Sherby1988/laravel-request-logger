@@ -11,7 +11,7 @@ Insiperd by [Morgan - Node HTTP request logger](https://github.com/expressjs/mor
 
 ### Composer
 
-Add `iamjoey/laravel-request-logger` to the "require" section of your `composer.json` file.
+Add `timeout2x/laravel-request-logger` to the "require" section of your `composer.json` file.
 
 ``` bash
 composer require timeout2x/laravel-request-logger
