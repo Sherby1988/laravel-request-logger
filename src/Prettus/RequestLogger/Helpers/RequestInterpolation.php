@@ -87,7 +87,7 @@ class RequestInterpolation extends BaseInterpolation {
                     break;        
                 case "request-content":
                     if($data = $this->request->all()) {
-                        $data['password'] = bcrypt($data['password']);
+                        //$data['password'] = bcrypt($data['password']);
                         return json_encode($data);
                     } else {
                         return "";
