@@ -1,5 +1,5 @@
 {
-  "name": "iamjoey/laravel-request-logger",
+  "name": "timeout2x/laravel-request-logger",
   "description": "HTTP request logger middleware for Laravel",
   "keywords": [
     "laravel",
