@@ -14,7 +14,7 @@ Insiperd by [Morgan - Node HTTP request logger](https://github.com/expressjs/mor
 Add `iamjoey/laravel-request-logger` to the "require" section of your `composer.json` file.
 
 ``` bash
-composer require iamjoey/laravel-request-logger
+composer require timeout2x/laravel-request-logger
 ```
 
 Run `composer update` to get the latest version of the package.
