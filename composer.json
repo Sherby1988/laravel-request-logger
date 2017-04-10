@@ -7,9 +7,9 @@
     "request",
     "response"
   ],
-  "homepage": "https://github.com/iamjoey/laravel-request-logger",
+  "homepage": "https://github.com/timeout2x/laravel-request-logger",
   "support": {
-    "source": "https://github.com/iamjoey/laravel-request-logger"
+    "source": "https://github.com/timeout2x/laravel-request-logger"
   },
   "license": "MIT",
   "authors": [
