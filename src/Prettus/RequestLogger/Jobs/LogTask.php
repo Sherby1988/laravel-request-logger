@@ -17,15 +17,21 @@ class LogTask implements ShouldQueue
     protected $response;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
      * Create a new job instance.
      *
      * @param  Request  $request
      * @param  Response $response
      */
-    public function __construct($request, $response)
+    public function __construct($request, $response, $user)
     {
         $this->request = $request;
         $this->response = $response;
+        $this->user = $user;
     }
 
     /**
@@ -34,6 +40,6 @@ class LogTask implements ShouldQueue
     public function handle()
     {
         $requestLogger = app(\Prettus\RequestLogger\ResponseLogger::class);
-        $requestLogger->log($this->request, $this->response);
+        $requestLogger->log($this->request, $this->response, $this->user);
     }
 }

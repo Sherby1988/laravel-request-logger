@@ -1,6 +1,7 @@
 <?php
 namespace Prettus\RequestLogger\Middlewares;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Prettus\RequestLogger\Jobs\LogTask;
 
@@ -21,14 +22,10 @@ class ResponseLoggerMiddleware
 
     public function terminate(Request $request, Response $response)
     {
-        // For some reason $request->route() returns null...        
-/*        $currentRoute = Route::getCurrentRoute();
 
-        \Log::debug($currentRoute->getPath(). " ". print_r($currentRoute->getMethods(), true));
-*/
-
-        if(!$this->excluded($request)) {                    
-            $task = new LogTask($request, $response);
+        if(!$this->excluded($request)) {
+            $user = Auth::user();
+            $task = new LogTask($request, $response, $user);
 
             if($queueName = config('request-logger.queue')) {
                 $this->dispatch(is_string($queueName) ? $task->onQueue($queueName) : $task);

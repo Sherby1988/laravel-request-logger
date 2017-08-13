@@ -21,7 +21,7 @@ class RequestInterpolation extends BaseInterpolation {
             $matches = [];
             preg_match("/{\s*(.+?)\s*}(\r?\n)?/", $variable, $matches);
             if( isset($matches[1]) ) {
-                $value = $this->escape($this->resolveVariable($matches[0], $matches[1]));
+                $value = $this->resolveVariable($matches[0], $matches[1]);
                 $text = str_replace($matches[0], $value, $text);
             }
         }
@@ -84,7 +84,7 @@ class RequestInterpolation extends BaseInterpolation {
                 switch($matches[0]) {
                 case "date":
                     $matches[] = "clf";
-                    break;        
+                    break;
                 case "request-content":
                     if($data = $this->request->all()) {
                         //$data['password'] = bcrypt($data['password']);

@@ -30,6 +30,14 @@ abstract class BaseInterpolation implements Interpolable {
     }
 
     /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
      * @param Response $response
      */
     public function setResponse(Response $response)

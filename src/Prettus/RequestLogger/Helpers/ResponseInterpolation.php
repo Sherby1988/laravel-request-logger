@@ -18,7 +18,7 @@ class ResponseInterpolation extends BaseInterpolation {
             $matches = [];
             preg_match("/{\s*(.+?)\s*}(\r?\n)?/", $variable, $matches);
             if( isset($matches[1]) ) {
-                $value =  $this->escape($this->resolveVariable($matches[0], $matches[1]));
+                $value = $this->resolveVariable($matches[0], $matches[1]);
                 $text = str_replace($matches[0], $value, $text);
             }
         }
@@ -45,10 +45,22 @@ class ResponseInterpolation extends BaseInterpolation {
             "getStatusCode"
         ],camel_case($variable));
 
+        $user_var = str_replace([
+            "user-email",
+            "user-id",
+            "user-name"
+        ], [
+            "email",
+            "id",
+            "name"
+        ],$variable);
+
         if( method_exists($this->response, $method) ) {
             return $this->response->$method();
         } elseif( method_exists($this, $method) ) {
             return $this->$method();
+        } elseif( isset($this->user->{$user_var}) ) {
+            return $this->user->{$user_var};
         } else {
             $matches = [];
             preg_match("/([-\w]{2,})(?:\[([^\]]+)\])?/", $variable, $matches);
