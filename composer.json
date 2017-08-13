@@ -1,5 +1,5 @@
 {
-  "name": "sherby88/laravel-request-logger",
+  "name": "Sherby1988/laravel-request-logger",
   "description": "HTTP request logger middleware for Laravel",
   "keywords": [
     "laravel",
@@ -7,9 +7,9 @@
     "request",
     "response"
   ],
-  "homepage": "https://github.com/sherby88/laravel-request-logger",
+  "homepage": "https://github.com/Sherby1988/laravel-request-logger",
   "support": {
-    "source": "https://github.com/sherby88/laravel-request-logger"
+    "source": "https://github.com/Sherby1988/laravel-request-logger"
   },
   "license": "MIT",
   "authors": [
