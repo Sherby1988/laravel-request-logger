@@ -7,9 +7,9 @@
     "request",
     "response"
   ],
-  "homepage": "https://github.com/timeout2x/laravel-request-logger",
+  "homepage": "https://github.com/sherby88/laravel-request-logger",
   "support": {
-    "source": "https://github.com/timeout2x/laravel-request-logger"
+    "source": "https://github.com/sherby88/laravel-request-logger"
   },
   "license": "MIT",
   "authors": [
@@ -20,6 +20,10 @@
     {
       "name": "Joey Hallie",
       "email": "hi@joeyhallie.nl"
+    },
+    {
+      "name": "Serban Tudor",
+      "email": "serban88@gmail.com"
     }
   ],
   "require": {
