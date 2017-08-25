@@ -29,7 +29,8 @@ class ResponseLogger
         "short"     =>'{remote-addr} {remote-user} {method} {url} HTTP/{http-version} {status} {content-length} - {response-time} ms',
         "tiny"      =>'{method} {url} {status} {content-length} - {response-time} ms',
         "api"       =>'{remote-addr} | {method}: {path} | user_id: {user-id} | user_name: {user-name} | email: {user-email} | payload: {request} | response: {content} | duration: {response-time}',
-        "auth"      =>'{remote-addr} | {method}: {path} | user_id: {user-id} | user_name: {user-name} | email: {user-email} | duration: {response-time}'
+        "auth"      =>'{remote-addr} | {method}: {path} | user_id: {user-id} | user_name: {user-name} | email: {user-email} | duration: {response-time}',
+        "node"      =>'{remote-addr} | {method}: {path} | user_id: {user-id} | user_name: {user-name} | email: {user-email} | payload: {request} | response: {content} | request headers: {req[HEADER]} | response headers: {res[HEADER]}	|duration: {response-time}',
     ];
 
     /**
@@ -70,7 +71,7 @@ class ResponseLogger
             if(isset(config("request-logger.logger.routes-format")[$route_name])){
                 $format = config("request-logger.logger.routes-format")[$route_name];
             }else {
-            $format = config('request-logger.logger.format', "{ip} {remote_user} {date} {method} {url} HTTP/{http_version} {status} {content_length} {referer} {user_agent}");
+                $format = config('request-logger.logger.format', "{ip} {remote_user} {date} {method} {url} HTTP/{http_version} {status} {content_length} {referer} {user_agent}");
             }
             $format = array_get($this->formats, $format, $format);
             $message = $this->responseInterpolation->interpolate($format);
