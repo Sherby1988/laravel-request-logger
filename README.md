@@ -11,10 +11,10 @@ Insiperd by [Morgan - Node HTTP request logger](https://github.com/expressjs/mor
 
 ### Composer
 
-Add `timeout2x/laravel-request-logger` to the "require" section of your `composer.json` file.
+Add `Sherby1988/laravel-request-logger` to the "require" section of your `composer.json` file.
 
 ``` bash
-composer require timeout2x/laravel-request-logger
+composer require Sherby1988/laravel-request-logger
 ```
 
 Run `composer update` to get the latest version of the package.
@@ -46,7 +46,10 @@ In your `config/request-logger.php` file, you can change configuration for logge
     'handlers'  => ['Prettus\RequestLogger\Handler\HttpLoggerHandler'],
     'file'      => storage_path("logs/http.log"),
     'level'     => 'info',
-    'format'    => 'common'
+    'format'    => 'common',
+    'routes-format' => [
+        'route.name' => format    
+    ]
 ],
 'exclude' => [],
 ```
@@ -103,6 +106,8 @@ In your `config/request-logger.php` file, you can change configuration for logge
 | dev       | {method} {url} {status} {response-time} ms - {content-length}                                                                         |
 | short     | {remote-addr} {remote-user} {method} {url} HTTP/{http-version} {status} {content-length} - {response-time} ms                         |
 | tiny      | {method} {url} {status} {content-length} - {response-time} ms                                                                         |
+| api       | {remote-addr} {method}: {path} user_id: {user-id} user_name: {user-name} email: {user-email} payload: {request} response: {content} duration: {response-time} |
+| auth      | {remote-addr} {method}: {path} user_id: {user-id} user_name: {user-name} email: {user-email} duration: {response-time} |
 
 
 ## Examples
